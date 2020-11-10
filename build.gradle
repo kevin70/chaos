@@ -1,0 +1,76 @@
+plugins {
+  id "java"
+  id "java-library"
+  id "idea"
+  id "maven-publish"
+  id "signing"
+  id "io.spring.dependency-management" version "1.0.10.RELEASE"
+}
+
+allprojects {
+
+  group 'top.yein.chaos'
+  version '1.0-SNAPSHOT'
+
+  apply plugin: "java"
+  apply plugin: "java-library"
+  apply plugin: "maven-publish"
+  apply plugin: "signing"
+  apply plugin: "io.spring.dependency-management"
+
+  ext {
+    isReleasedVersion = !project.version.endsWith("-SNAPSHOT")
+
+    guavaVersion = "30.0-jre"
+    junitVersion = "5.6.2"
+    assertjVersion = "3.11.1"
+    lombokVersion = "1.18.12"
+  }
+
+  repositories {
+    mavenLocal()
+    maven { url = "https://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenCentral()
+  }
+
+  sourceCompatibility = "11"
+  targetCompatibility = "11"
+
+  [compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+  javadoc {
+    options.tags = ["date"]
+    if (JavaVersion.current().isJava9Compatible()) {
+      options.addBooleanOption('html5', true)
+    }
+  }
+
+}
+
+subprojects {
+
+  publishing {
+    publications {
+      mavenJava(MavenPublication) {}
+    }
+
+    repositories {
+      maven {
+        credentials {
+          username project.property("ossrhUsername")
+          password project.property("ossrhPassword")
+        }
+
+        if (!isReleasedVersion) {
+          url "https://oss.sonatype.org/content/repositories/snapshots"
+        } else {
+          url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        }
+      }
+    }
+  }
+
+  signing {
+    sign publishing.publications.mavenJava
+  }
+}
