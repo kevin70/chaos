@@ -60,8 +60,8 @@ subprojects {
     repositories {
       maven {
         credentials {
-          username project.property("ossrhUsername")
-          password project.property("ossrhPassword")
+          username findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
+          password findProperty("ossrhPassword") ?: System.getenv("OSRH_PASSWORD")
         }
 
         if (!isReleasedVersion) {
