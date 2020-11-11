@@ -9,8 +9,8 @@ plugins {
 
 allprojects {
 
-  group 'top.yein.chaos'
-  version '1.0-SNAPSHOT'
+  group "top.yein.chaos"
+  version "1.0-SNAPSHOT"
 
   apply plugin: "java"
   apply plugin: "java-library"
@@ -44,7 +44,7 @@ allprojects {
   javadoc {
     options.tags = ["date"]
     if (JavaVersion.current().isJava9Compatible()) {
-      options.addBooleanOption('html5', true)
+      options.addBooleanOption("html5", true)
     }
   }
 
