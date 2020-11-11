@@ -72,6 +72,7 @@ dependencyManagement {
     dependency("org.postgresql:postgresql:42.2.18")
     dependency("redis.clients:jedis:3.3.0")
     dependency("io.lettuce:lettuce-core:5.3.5.RELEASE")
+    dependency("org.redisson:redisson:3.13.6")
 
     // MyBatis
     dependency("org.mybatis:mybatis:3.5.6")
