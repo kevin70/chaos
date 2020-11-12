@@ -123,9 +123,8 @@ public final class BizCodeException extends RuntimeException {
 
   private String getFormattedMessage(final String baseMessage) {
     final StringBuilder builder = new StringBuilder(64);
-    builder.append("BizCodeException:");
     if (baseMessage != null) {
-      builder.append(' ').append(baseMessage);
+      builder.append(baseMessage);
     }
     builder
         .append("\n\t[code=")
