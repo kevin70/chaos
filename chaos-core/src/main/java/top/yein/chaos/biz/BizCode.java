@@ -63,6 +63,8 @@ public interface BizCode {
   BizCode C910 = new EasyBizCode(910, 400, "数据格式不正确");
   /** 数据类型不正确. */
   BizCode C911 = new EasyBizCode(911, 400, "数据类型不正确");
+  /** 缺少必选参数. */
+  BizCode C912 = new EasyBizCode(912, 400, "缺少参数");
 
   // ====================================== 公共错误码定义 ======================================
 
