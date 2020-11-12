@@ -59,6 +59,10 @@ dependencyManagement {
       entry("jjwt-impl")
       entry("jjwt-jackson")
     }
+    dependencySet("org.zalando:0.26.2") {
+      entry("problem-spring-web")
+      entry("problem-spring-web-starter")
+    }
     dependency("org.projectlombok:lombok:1.18.12")
     dependency("org.slf4j:slf4j-api:1.7.30")
     dependency("org.ow2.asm:asm:7.3.1")
