@@ -26,7 +26,6 @@ dependencyManagement {
     mavenBom("org.springframework.boot:spring-boot-dependencies:2.3.5.RELEASE")
     mavenBom("org.apache.logging.log4j:log4j-bom:2.13.3")
     mavenBom("com.fasterxml.jackson:jackson-bom:2.11.3")
-    mavenBom("io.jsonwebtoken:jjwt-root:0.11.2")
     mavenBom("io.micrometer:micrometer-bom:1.6.0")
     mavenBom("org.junit:junit-bom:${junitVersion}")
     mavenBom("org.testcontainers:testcontainers-bom:1.14.3")
@@ -55,6 +54,10 @@ dependencyManagement {
     dependencySet("org.openjdk.jol:0.14") {
       entry("jol-cli")
       entry("jol-core")
+    }
+    dependencySet("io.jsonwebtoken:0.11.2") {
+      entry("jjwt-impl")
+      entry("jjwt-jackson")
     }
     dependency("org.projectlombok:lombok:1.18.12")
     dependency("org.slf4j:slf4j-api:1.7.30")
