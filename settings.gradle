@@ -2,4 +2,5 @@ rootProject.name = "chaos"
 
 include ":chaos-bom"
 include ":chaos-core"
+include ":chaos-web"
 

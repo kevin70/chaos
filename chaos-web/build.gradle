@@ -1,0 +1,9 @@
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      pom {
+        description = "Yein Chaos Web"
+      }
+    }
+  }
+}

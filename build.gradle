@@ -20,11 +20,6 @@ allprojects {
 
   ext {
     isReleasedVersion = !project.version.endsWith("-SNAPSHOT")
-
-    guavaVersion = "30.0-jre"
-    junitVersion = "5.6.2"
-    assertjVersion = "3.11.1"
-    lombokVersion = "1.18.12"
   }
 
   repositories {
@@ -75,5 +70,64 @@ subprojects {
 
   signing {
     sign publishing.publications.mavenJava
+  }
+}
+
+configure(subprojects) { project ->
+  if (project.name == "chaos-bom") {
+    return
+  }
+
+  task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier = "sources"
+    from sourceSets.main.allSource
+  }
+
+  task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier = "javadoc"
+    from javadoc.destinationDir
+  }
+
+  artifacts {
+    archives sourcesJar
+    archives javadocJar
+  }
+
+  publishing {
+    publications {
+      mavenJava(MavenPublication) {
+        from components.java
+        artifact sourcesJar
+        artifact javadocJar
+
+        pom {
+          scm {
+            connection = "scm:git:git@github.com:kevin70/chaos.git"
+            developerConnection = "scm:git:ssh://github.com/kevin70/chaos.git"
+            url = "https://github.com/kevin70/chaos"
+          }
+          developers {
+            developer {
+              id = "kk70"
+              name = "Kevin Zou"
+              email = "kevinz@weghst.com"
+              url = "https://kk70.top"
+            }
+          }
+        }
+      }
+    }
+  }
+
+  dependencyManagement {
+    imports {
+      mavenBom("org.junit:junit-bom:${junitVersion}")
+    }
+  }
+
+  dependencies {
+    testImplementation("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.assertj:assertj-core:${assertjVersion}")
   }
 }
