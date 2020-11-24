@@ -7,3 +7,9 @@ publishing {
     }
   }
 }
+
+dependencies {
+  api(project(":chaos-core"))
+  compileOnly("org.zalando:problem-spring-web:${problemSpringVersion}")
+  compileOnly("org.springframework:spring-web:${springVersion}")
+}
