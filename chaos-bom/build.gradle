@@ -23,15 +23,18 @@ publishing {
 
 dependencyManagement {
   imports {
-    mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-    mavenBom("org.apache.logging.log4j:log4j-bom:${log4jVersion}")
-    mavenBom("com.fasterxml.jackson:jackson-bom:${jacksonVersion}")
-    mavenBom("io.micrometer:micrometer-bom:${micrometerVersion}")
-    mavenBom("org.junit:junit-bom:${junitVersion}")
-    mavenBom("org.testcontainers:testcontainers-bom:${testcontainersVersion}")
     mavenBom("org.jdbi:jdbi3-bom:${jdbi3Version}")
     mavenBom("io.r2dbc:r2dbc-bom:${r2dbcVersion}")
     mavenBom("com.google.inject:guice-bom:${guiceVersion}")
+    mavenBom("org.apache.logging.log4j:log4j-bom:${log4jVersion}")
+    mavenBom("com.fasterxml.jackson:jackson-bom:${jacksonVersion}")
+    mavenBom("io.micrometer:micrometer-bom:${micrometerVersion}")
+
+    // TEST
+    mavenBom("org.junit:junit-bom:${junitVersion}")
+    mavenBom("org.testcontainers:testcontainers-bom:${testcontainersVersion}")
+
+    mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
   }
 
   dependencies {
@@ -47,14 +50,6 @@ dependencyManagement {
       entry("httpclient")
       entry("fluent-hc")
     }
-    dependencySet("org.openjdk.jmh:${jmhVersion}") {
-      entry("jmh-core")
-      entry("jmh-generator-annprocess")
-    }
-    dependencySet("org.openjdk.jol:${jolVersion}") {
-      entry("jol-cli")
-      entry("jol-core")
-    }
     dependencySet("io.jsonwebtoken:${jjwtVersion}") {
       entry("jjwt-impl")
       entry("jjwt-jackson")
@@ -66,12 +61,20 @@ dependencyManagement {
     dependency("org.projectlombok:lombok:${lombokVersion}")
     dependency("org.slf4j:slf4j-api:${slf4jVersion}")
     dependency("org.ow2.asm:asm:${asmVersion}")
+
+    // TOOLS
     dependency("com.google.guava:guava:${guavaVersion}")
     dependency("com.github.ben-manes.caffeine:caffeine:${caffeineVersion}")
     dependency("com.typesafe:config:${typesafeConfigVersion}")
+
+    // TEST
     dependency("org.assertj:assertj-core:${assertjVersion}")
     dependency("org.powermock:powermock-reflect:${powermockReflectVersion}")
     dependency("com.github.stefanbirkner:system-lambda:${systemLambdaVersion}")
+    dependency("org.openjdk.jmh:jmh-core:${jmhVersion}")
+    dependency("org.openjdk.jmh:jmh-generator-annprocess:${jmhVersion}")
+    dependency("org.openjdk.jol:jol-cli:${jolVersion}")
+    dependency("org.openjdk.jol:jol-core:${jolVersion}")
 
     // DB
     dependency("mysql:mysql-connector-java:${mysqlVersion}")
@@ -80,18 +83,22 @@ dependencyManagement {
     dependency("io.lettuce:lettuce-core:${lettuceVersion}")
     dependency("org.redisson:redisson:${redissonVersion}")
 
-    // MyBatis
+    // ORM
     dependency("org.mybatis:mybatis:${mybatisVersion}")
     dependency("org.mybatis:mybatis-spring:${mybatisSpringVersion}")
     dependency("org.mybatis:mybatis-guice:${mybatisGuiceVersion}")
     dependency("org.mybatis:mybatis-typehandlers-jsr310:${mybatisJsr310Version}")
     dependency("org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisSpringBootVersion}")
 
-    // 第三方
+    // 3RD
     dependency("com.aliyun:aliyun-java-sdk-core:${aliyunSdkVersion}")
     dependency("com.qiniu:qiniu-java-sdk:${qiniuSdkVersion}")
 
-    // self 依赖
+    // CHINESE
+    dependency("io.github.biezhi:TinyPinyin:${tinyPinyinVersion}")
+
+    // SELF
     dependency("${group}:chaos-core:${version}")
+    dependency("${group}:chaos-web:${version}")
   }
 }
