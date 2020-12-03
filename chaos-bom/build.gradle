@@ -67,6 +67,7 @@ dependencyManagement {
     dependency("com.google.guava:guava:${guavaVersion}")
     dependency("com.github.ben-manes.caffeine:caffeine:${caffeineVersion}")
     dependency("com.typesafe:config:${typesafeConfigVersion}")
+    dependency("org.simplejavamail:simple-java-mail:${simpleJavaMailVersion}")
 
     // TEST
     dependency("org.assertj:assertj-core:${assertjVersion}")
