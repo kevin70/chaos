@@ -10,4 +10,7 @@ publishing {
 
 dependencies {
   api("com.google.guava:guava:${guavaVersion}")
+  implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+
+  testImplementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
 }
