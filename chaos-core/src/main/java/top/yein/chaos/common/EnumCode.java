@@ -6,7 +6,7 @@ package top.yein.chaos.common;
  * @author Kevin Zou (kevinz@weghst.com)
  * @date 2020-11-20 15:27
  */
-public interface CodeEnum {
+public interface EnumCode {
 
   /**
    * 返回枚举码.
