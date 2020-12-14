@@ -10,6 +10,9 @@ publishing {
 
 dependencies {
   api("com.google.guava:guava:${guavaVersion}")
+
+  compileOnly("org.projectlombok:lombok:${lombokVersion}")
+  annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
   implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
 
   testImplementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")

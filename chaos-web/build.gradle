@@ -10,6 +10,10 @@ publishing {
 
 dependencies {
   api(project(":chaos-core"))
+  api("org.apache.logging.log4j:log4j-api:${log4jVersion}")
+  compileOnly("javax.servlet:javax.servlet-api:${servletApiVersion}")
   compileOnly("org.zalando:problem-spring-web:${problemSpringVersion}")
   compileOnly("org.springframework:spring-web:${springVersion}")
+  compileOnly("org.projectlombok:lombok:${lombokVersion}")
+  annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 }
