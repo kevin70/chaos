@@ -23,19 +23,17 @@ publishing {
 
 dependencyManagement {
   imports {
+    mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    mavenBom("io.helidon:helidon-bom:${helidonVersion}")
     mavenBom("org.jdbi:jdbi3-bom:${jdbi3Version}")
     mavenBom("io.r2dbc:r2dbc-bom:${r2dbcVersion}")
     mavenBom("com.google.inject:guice-bom:${guiceVersion}")
-    mavenBom("org.apache.logging.log4j:log4j-bom:${log4jVersion}")
-    mavenBom("com.fasterxml.jackson:jackson-bom:${jacksonVersion}")
     mavenBom("io.micrometer:micrometer-bom:${micrometerVersion}")
-    mavenBom("io.helidon:helidon-bom:${helidonVersion}")
-
-    // TEST
+    mavenBom("com.fasterxml.jackson:jackson-bom:${jacksonVersion}")
+    mavenBom("org.apache.logging.log4j:log4j-bom:${log4jVersion}")
+    mavenBom("io.projectreactor:reactor-bom:${reactorVersion}")
     mavenBom("org.junit:junit-bom:${junitVersion}")
     mavenBom("org.testcontainers:testcontainers-bom:${testcontainersVersion}")
-
-    mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
   }
 
   dependencies {
