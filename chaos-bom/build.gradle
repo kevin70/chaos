@@ -50,6 +50,7 @@ dependencyManagement {
       entry("fluent-hc")
     }
     dependencySet("io.jsonwebtoken:${jjwtVersion}") {
+      entry("jjwt-api")
       entry("jjwt-impl")
       entry("jjwt-jackson")
     }
