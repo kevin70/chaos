@@ -78,6 +78,7 @@ dependencyManagement {
     dependency("org.openjdk.jmh:jmh-generator-annprocess:${jmhVersion}")
     dependency("org.openjdk.jol:jol-cli:${jolVersion}")
     dependency("org.openjdk.jol:jol-core:${jolVersion}")
+    dependency("com.github.javafaker:javafaker:${javafakerVersion}")
 
     // DB
     dependency("mysql:mysql-connector-java:${mysqlVersion}")
