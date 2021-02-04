@@ -43,6 +43,8 @@ public interface BizCode {
   BizCode C403 = new EasyBizCode(403, 403, "拒绝访问");
   /** 未找到指定的资源. */
   BizCode C404 = new EasyBizCode(404, 404, "未找到资源");
+  /** Not Acceptable. */
+  BizCode C406 = new EasyBizCode(406, 406, "Not Acceptable");
   /** 资源冲突. */
   BizCode C409 = new EasyBizCode(409, 409, "资源冲突");
   /**
