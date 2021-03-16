@@ -59,6 +59,9 @@ dependencyManagement {
       entry("problem-spring-web")
       entry("problem-spring-web-starter")
     }
+    dependencySet("org.apache.skywalking:${skywalkingVersion}") {
+      entry("apm-toolkit-micrometer-registry")
+    }
     dependency("org.projectlombok:lombok:${lombokVersion}")
     dependency("org.slf4j:slf4j-api:${slf4jVersion}")
     dependency("org.ow2.asm:asm:${asmVersion}")
