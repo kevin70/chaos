@@ -73,6 +73,7 @@ dependencyManagement {
     dependency("com.typesafe:config:${typesafeConfigVersion}")
     dependency("javax.mail:javax.mail-api:${javaxMailVersion}")
     dependency("com.sun.mail:javax.mail:${javaxMailVersion}")
+    dependency("org.roaringbitmap:RoaringBitmap:${roaringBitmapVersion}")
 
     // TEST
     dependency("org.assertj:assertj-core:${assertjVersion}")
