@@ -33,6 +33,7 @@ dependencyManagement {
     mavenBom("org.apache.logging.log4j:log4j-bom:${log4jVersion}")
     mavenBom("io.projectreactor:reactor-bom:${reactorVersion}")
     mavenBom("org.springframework:spring-framework-bom:${springVersion}")
+    mavenBom("io.grpc:grpc-bom:${grpcVersion}")
     mavenBom("org.junit:junit-bom:${junitVersion}")
     mavenBom("org.testcontainers:testcontainers-bom:${testcontainersVersion}")
   }
