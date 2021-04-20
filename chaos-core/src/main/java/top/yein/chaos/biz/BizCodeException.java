@@ -11,7 +11,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  * @author Kevin Zou (kevinz@weghst.com)
  * @date 2020-11-09 15:19
  */
-public final class BizCodeException extends RuntimeException {
+public class BizCodeException extends RuntimeException {
 
   private final transient BizCode bizCode;
   private final transient List<ContextValue> contextEntries = new ArrayList<>();
