@@ -22,37 +22,36 @@ package top.yein.chaos.biz;
  *
  * <b>服务端未捕获或未知异常统一返回 {@link #C0} 错误类型, 同时需要在日志中记录详细的错误描述及输入参数, 便于开发人员后期排查问题.</b>
  *
- * @author Kevin Zou (kevinz@weghst.com)
- * @date 2020-11-09 15:18
+ * @author KK (kzou227@qq.com)
  */
 public interface BizCode {
 
   // ====================================== 公共错误码定义 ======================================
 
   /** 未定义错误. */
-  BizCode C0 = new EasyBizCode(0, 500, "未定义错误");
+  BizCode C0 = new EasyBizCode(0, 500, 2, "未定义错误");
   /**
    * 错误的请求.
    *
    * <p>通常是指缺少参数, 或者参数不符合接口要求.
    */
-  BizCode C400 = new EasyBizCode(400, 400, "错误的请求");
+  BizCode C400 = new EasyBizCode(400, 400, 3, "错误的请求");
   /** 未认证或认证失效访问资源需要认证校验. */
-  BizCode C401 = new EasyBizCode(401, 401, "未认证或认证失效");
+  BizCode C401 = new EasyBizCode(401, 401, 16, "未认证或认证失效");
   /** 拒绝访问没有资源访问权限. */
-  BizCode C403 = new EasyBizCode(403, 403, "拒绝访问");
+  BizCode C403 = new EasyBizCode(403, 403, 7, "拒绝访问");
   /** 未找到指定的资源. */
-  BizCode C404 = new EasyBizCode(404, 404, "未找到资源");
+  BizCode C404 = new EasyBizCode(404, 404, 5, "未找到资源");
   /** Not Acceptable. */
-  BizCode C406 = new EasyBizCode(406, 406, "Not Acceptable");
+  BizCode C406 = new EasyBizCode(406, 406, 9, "Not Acceptable");
   /** 资源冲突. */
-  BizCode C409 = new EasyBizCode(409, 409, "资源冲突");
+  BizCode C409 = new EasyBizCode(409, 409, 10, "资源冲突");
   /**
    * 唯一冲突.
    *
    * <p>一般指数据库存储的唯一索引冲突.
    */
-  BizCode C810 = new EasyBizCode(810, 409, "唯一冲突");
+  BizCode C810 = new EasyBizCode(810, 409, 6, "唯一冲突");
   /**
    * 数据更新异常.
    *
@@ -60,13 +59,13 @@ public interface BizCode {
    *
    * <p>示例: 预期修改 1 条数据记录实际修改了 3 条记录.
    */
-  BizCode C811 = new EasyBizCode(811, 500, "数据修改异常受影响的行记录数不正确");
+  BizCode C811 = new EasyBizCode(811, 500, 9, "数据修改异常受影响的行记录数不正确");
   /** 数据格式不正确. */
-  BizCode C910 = new EasyBizCode(910, 400, "数据格式不正确");
+  BizCode C910 = new EasyBizCode(910, 400, 3, "数据格式不正确");
   /** 数据类型不正确. */
-  BizCode C911 = new EasyBizCode(911, 400, "数据类型不正确");
+  BizCode C911 = new EasyBizCode(911, 400, 3, "数据类型不正确");
   /** 缺少必选参数. */
-  BizCode C912 = new EasyBizCode(912, 400, "缺少参数");
+  BizCode C912 = new EasyBizCode(912, 400, 3, "缺少参数");
 
   // ====================================== 公共错误码定义 ======================================
 
@@ -82,13 +81,20 @@ public interface BizCode {
   int getCode();
 
   /**
-   * 返回状态码.
+   * HTTP 状态码 <a
+   * href="https://httpstatus.io/http-status-codes">https://httpstatus.io/http-status-codes</a>.
    *
-   * <p>一般表示 <b>HTTP Status</b>.
-   *
-   * @return 状态码
+   * @return HTTP 状态码
    */
-  int getStatus();
+  int getHttpStatus();
+
+  /**
+   * gRPC 状态码 <a
+   * href="https://github.com/grpc/grpc/blob/master/doc/statuscodes.md">https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</a>.
+   *
+   * @return gRPC 状态码
+   */
+  int getGrpcStatus();
 
   /**
    * 业务错误码描述.

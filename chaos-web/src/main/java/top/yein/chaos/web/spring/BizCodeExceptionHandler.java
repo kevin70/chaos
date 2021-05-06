@@ -25,7 +25,7 @@ public class BizCodeExceptionHandler implements AdviceTrait {
     var builder =
         Problem.builder()
             .with("code", bc.getCode())
-            .withStatus(Status.valueOf(bc.getStatus()))
+            .withStatus(Status.valueOf(bc.getHttpStatus()))
             .withTitle(bc.getMessage())
             .withDetail(exception.getRawMessage());
     var contextEntries = exception.getContextEntries();
