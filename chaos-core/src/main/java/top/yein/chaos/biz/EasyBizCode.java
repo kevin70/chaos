@@ -3,8 +3,7 @@ package top.yein.chaos.biz;
 /**
  * 通用错误码对象.
  *
- * @author Kevin Zou (kevinz@weghst.com)
- * @date 2020-11-09 16:03
+ * @author KK (kzou227@qq.com)
  */
 public final class EasyBizCode implements BizCode {
 
@@ -18,7 +17,7 @@ public final class EasyBizCode implements BizCode {
    *
    * @param code {@link BizCode#getCode()}
    * @param httpStatus {@link BizCode#getHttpStatus()}
-   * @param grpcStatus
+   * @param grpcStatus {@link BizCode#getGrpcStatus()}
    * @param message {@link BizCode#getMessage()}
    */
   public EasyBizCode(int code, int httpStatus, int grpcStatus, String message) {
