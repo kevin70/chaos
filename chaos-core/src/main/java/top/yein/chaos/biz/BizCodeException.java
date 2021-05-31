@@ -8,8 +8,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * 业务异常与 {@link BizCode} 联合使用.
  *
- * @author Kevin Zou (kevinz@weghst.com)
- * @date 2020-11-09 15:19
+ * @author KK (kzou227@qq.com)
  */
 public class BizCodeException extends RuntimeException {
 
